@@ -1,16 +1,17 @@
-import * as React from 'react';
-import { View, Text } from 'react-native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
-import RequisitionsScreen from './src/screens/Requisition/RequisitionScreen';
-import { DrawerParamList } from './src/types/DrawerParamList';
+import * as React from "react";
+import { View, Text } from "react-native";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
+import RequisitionsScreen from "./src/screens/Requisition/RequisitionScreen";
+import { DrawerParamList } from "./src/types/DrawerParamList";
+import DrawerContent from "./DrawerContent";
 
 const MyTheme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    primary: '#1B435C',
-    background: '#FAFAFA',
+    primary: "#1B435C",
+    background: "#FAFAFA",
   },
 };
 function Dummy() {
@@ -25,15 +26,16 @@ export default function App() {
   return (
     <NavigationContainer theme={MyTheme}>
       <Drawer.Navigator
-        initialRouteName='Requisitions'
+        initialRouteName="Requisitions"
         drawerContentOptions={{
-          activeTintColor: '#000',
-          inactiveBackgroundColor: 'green',
+          activeTintColor: "#000",
+          inactiveBackgroundColor: "green",
           itemStyle: { marginVertical: 5 },
         }}
+        drawerContent={DrawerContent}
       >
-        <Drawer.Screen name='Requisitions' component={RequisitionsScreen} />
-        <Drawer.Screen name='Dummy' component={Dummy} />
+        <Drawer.Screen name="Requisitions" component={RequisitionsScreen} />
+        <Drawer.Screen name="Dummy" component={Dummy} />
       </Drawer.Navigator>
     </NavigationContainer>
   );

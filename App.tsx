@@ -1,21 +1,40 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+import { View, Text } from 'react-native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
+import RequisitionsScreen from './src/screens/Requisition/RequisitionScreen';
+import { DrawerParamList } from './src/types/DrawerParamList';
 
-export default function App() {
+// const MyTheme = {
+//   ...DefaultTheme,
+//   colors: {
+//     ...DefaultTheme.colors,
+//     primary: 'red',
+//     background: '#FAFAFA',
+//   },
+// };
+function Dummy() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View>
+      <Text>Dummy</Text>;
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const Drawer = createDrawerNavigator<DrawerParamList>();
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Drawer.Navigator
+        initialRouteName='Requisitions'
+        drawerContentOptions={{
+          activeTintColor: '#000',
+          inactiveBackgroundColor: 'green',
+          itemStyle: { marginVertical: 5 },
+        }}
+      >
+        <Drawer.Screen name='Requisitions' component={RequisitionsScreen} />
+        <Drawer.Screen name='Dummy' component={Dummy} />
+      </Drawer.Navigator>
+    </NavigationContainer>
+  );
+}

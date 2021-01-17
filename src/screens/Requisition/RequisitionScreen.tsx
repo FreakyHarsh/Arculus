@@ -12,6 +12,7 @@ import RequisitionDetail from './RequisitionDetail';
 import RequisitionHome from './RequisitionHome';
 import themedHeader from '../../utils/themedHeader';
 import RequisitionCreate from './RequisitionCreate';
+import InternalSubmitalCard from '../../components/InternalSubmitalCard';
 
 function RequisitionsScreen({
   navigation,
@@ -38,6 +39,11 @@ function RequisitionsScreen({
         name='Create'
         component={RequisitionCreate}
         options={themedHeader('Create Requisition')}
+      />
+      <Stack.Screen
+        name='InternalSubmitals'
+        component={InternalSubmitalCard}
+        options={themedHeader('Submital Detail')}
       />
       <Stack.Screen
         name='Detail'

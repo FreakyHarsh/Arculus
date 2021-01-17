@@ -5,7 +5,7 @@ export type RequisitionParamList = {
   Home: any;
   Detail: any;
   Create: any;
-  InternalSubmitals: any;
+  InternalSubmitalsList: any;
 }
 
 export type RequisitionNavProp<T extends keyof RequisitionParamList> = {

@@ -13,6 +13,7 @@ import RequisitionHome from './RequisitionHome';
 import themedHeader from '../../utils/themedHeader';
 import RequisitionCreate from './RequisitionCreate';
 import InternalSubmitalCard from '../../components/InternalSubmitalCard';
+import InternalSubmitalsList from './InternalSubmitalsList';
 
 function RequisitionsScreen({
   navigation,
@@ -32,7 +33,14 @@ function RequisitionsScreen({
           headerLeft: () => (
             <IconButton icon='menu' size={30} color='#FFFFFF' onPress={drawerOpen} />
           ),
-          headerRight: () => <IconButton icon='plus-circle-outline' size={30} color='#FFFFFF' />,
+          headerRight: () => (
+            <IconButton
+              icon='plus-circle-outline'
+              size={30}
+              color='#FFFFFF'
+              onPress={() => navigation.navigate('Create' as any)}
+            />
+          ),
         }}
       />
       <Stack.Screen
@@ -41,8 +49,8 @@ function RequisitionsScreen({
         options={themedHeader('Create Requisition')}
       />
       <Stack.Screen
-        name='InternalSubmitals'
-        component={InternalSubmitalCard}
+        name='InternalSubmitalsList'
+        component={InternalSubmitalsList}
         options={themedHeader('Submital Detail')}
       />
       <Stack.Screen

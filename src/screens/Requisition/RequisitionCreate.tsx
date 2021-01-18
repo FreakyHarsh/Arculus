@@ -6,24 +6,24 @@ import { Dropdown } from 'react-native-material-dropdown-v2-fixed';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 function RequisitionCreate() {
-  // const [date, setDate] = useState(new Date(1598051730000));
-  // const [mode, setMode] = useState('date');
-  // const [show, setShow] = useState(false);
+  const [date, setDate] = useState(new Date(1598051730000));
+  const [mode, setMode] = useState('date');
+  const [show, setShow] = useState(false);
 
-  // const onChange = (event: any, selectedDate: any) => {
-  //   const currentDate = selectedDate || date;
-  //   setShow(Platform.OS === 'ios');
-  //   setDate(currentDate);
-  // };
+  const onChange = (event: any, selectedDate: any) => {
+    const currentDate = selectedDate || date;
+    setShow(Platform.OS === 'ios');
+    setDate(currentDate);
+  };
 
-  // const showMode = (currentMode: any) => {
-  //   setShow(true);
-  //   setMode(currentMode);
-  // };
+  const showMode = (currentMode: any) => {
+    setShow(true);
+    setMode(currentMode);
+  };
 
-  // const showDatepicker = () => {
-  //   showMode('date');
-  // };
+  const showDatepicker = () => {
+    showMode('date');
+  };
 
   let ServiceType = [
     {
@@ -89,20 +89,7 @@ function RequisitionCreate() {
           label='No of Positions'
           style={{ width: '85%', marginBottom: '5%', backgroundColor: 'transparent' }}
         ></TextInput>
-        <Text>DateTime: Start Date</Text>
-        {/* <View>
-        <Button onPress={showDatepicker} title='Show date picker!' />
-        {show && (
-          <DateTimePicker
-            testID='dateTimePicker'
-            value={date}
-            mode='date'
-            is24Hour={true}
-            display='default'
-            onChange={onChange}
-          />
-        )}
-      </View> */}
+
         <TextInput
           label='Salary'
           underlineColor='black'
@@ -123,7 +110,35 @@ function RequisitionCreate() {
           }}
           style={{ width: '85%', marginBottom: '5%', backgroundColor: 'transparent' }}
         ></TextInput>
-        <Text>Status: Drop down here</Text>
+        <View style={{ width: '85%', marginBottom: '5%' }}>
+          <View
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'space-around',
+            }}
+          >
+            <Text style={{ width: '50%' }}>Start Date</Text>
+            <Button onPress={showDatepicker} uppercase={false} icon='calendar' color='#1B435C'>
+              Date
+            </Button>
+          </View>
+        </View>
+        <View style={{ height: 15 }}></View>
+
+        <View>
+          {show && (
+            <DateTimePicker
+              testID='dateTimePicker'
+              value={date}
+              mode='date'
+              is24Hour={true}
+              display='default'
+              onChange={onChange}
+            />
+          )}
+        </View>
         <Button mode='contained' color='#1B435C' style={{ marginBottom: 5, padding: 5 }}>
           Submit
         </Button>

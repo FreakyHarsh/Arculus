@@ -18,23 +18,24 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
-
-function RequisitionCard({ clicked }: any) {
+interface RequisitionCardProps {
+  reqDetail: () => void;
+  reqEdit: () => void;
+}
+function RequisitionCard({ reqDetail, reqEdit }: RequisitionCardProps) {
   return (
     <View style={styles.cardContainer}>
       <Card style={styles.card} elevation={5}>
         <Card.Content>
           <View style={styles.flexRow}>
             <Subheading style={{ width: '25%' }}>REQ# -</Subheading>
-            <TouchableOpacity style={{ backgroundColor: '#1B435C', padding: 4 }} onPress={clicked}>
+            <TouchableOpacity
+              style={{ backgroundColor: '#1B435C', padding: 4 }}
+              onPress={reqDetail}
+            >
               <Text style={{ color: 'white', textAlign: 'center' }}>Ref # 89-Dar-0890-0029</Text>
             </TouchableOpacity>
-            <IconButton
-              icon='pencil'
-              color='#1B435C'
-              size={23}
-              onPress={() => console.log('Edit Requisition')}
-            />
+            <IconButton icon='pencil' color='#1B435C' size={23} onPress={reqEdit} />
           </View>
           <View style={styles.flexRow}>
             <Subheading style={{ width: '50%' }}>Account -</Subheading>

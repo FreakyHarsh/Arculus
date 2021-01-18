@@ -3,6 +3,7 @@ import { StatusBar, View, StyleSheet } from 'react-native';
 import { Button, Card, Headline, Subheading, Caption } from 'react-native-paper';
 import RequisitionCard from '../../components/RequisitionCard';
 import { RequisitionNavProp } from '../../types/RequisitionParamList';
+import { useStore } from '../../store/store';
 const styles = StyleSheet.create({
   card: {
     width: '90%',

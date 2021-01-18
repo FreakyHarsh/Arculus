@@ -7,7 +7,12 @@ const DATA = ['1', '2', '3', '4', '5', '6'];
 
 function RequisitionHome({ navigation }: any) {
   const renderItem = ({ item }: any) => {
-    return <RequisitionCard clicked={() => navigation.navigate('Detail')} />;
+    return (
+      <RequisitionCard
+        reqDetail={() => navigation.navigate('Detail')}
+        reqEdit={() => navigation.navigate('Create')}
+      />
+    );
   };
   return (
     <View>

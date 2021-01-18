@@ -1,74 +1,68 @@
-import React, { FC } from "react";
-import { View } from "react-native";
-import { Drawer, Divider, Text, Avatar } from "react-native-paper";
+import React, { FC } from 'react';
+import { TouchableOpacity, View } from 'react-native';
+import { Drawer, Divider, Text, Avatar } from 'react-native-paper';
 import {
   DrawerContentScrollView,
   DrawerItem,
   DrawerContentComponentProps,
-} from "@react-navigation/drawer";
+} from '@react-navigation/drawer';
 
 const DrawerContent: FC<DrawerContentComponentProps> = (props) => {
   return (
-    <View style={{ backgroundColor: "#1B435C", height: "100%" }}>
+    <View style={{ backgroundColor: '#1B435C', height: '100%' }}>
       <DrawerContentScrollView {...props}>
         <View
           style={{
-            flexDirection: "row",
+            flexDirection: 'row',
 
-            alignItems: "center",
+            alignItems: 'center',
             marginTop: 50,
             marginBottom: 10,
           }}
         >
           <Avatar.Image
             size={100}
-            source={{ uri: "https://source.unsplash.com/random" }}
-            style={{ marginRight: "10%", marginLeft: 10 }}
+            source={{ uri: 'https://source.unsplash.com/random' }}
+            style={{ marginRight: '10%', marginLeft: 10 }}
           />
-          <Text style={{ color: "white", fontSize: 20, fontWeight: "bold" }}>
-            User name
-          </Text>
+          <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold' }}>User name</Text>
         </View>
-        <Divider style={{ backgroundColor: "white", height: 3 }} />
-        <View style={{ alignItems: "center" }}>
-          <View style={{ width: "80%" }}>
-            <View style={{ marginTop: "10%" }}>
-              <Text
-                style={{ marginLeft: "10%", color: "gray", marginVertical: 10 }}
-              >
-                Inbox
-              </Text>
-              <Divider style={{ backgroundColor: "white", height: 1.5 }} />
-              <Text
-                style={{
-                  marginLeft: "10%",
-                  color: "white",
-                  marginVertical: 10,
-                }}
-              >
-                Home
-              </Text>
+        <Divider style={{ backgroundColor: 'white', height: 3 }} />
+        <View style={{ alignItems: 'center' }}>
+          <View style={{ width: '80%' }}>
+            <View style={{ marginTop: '10%' }}>
+              <Text style={{ marginLeft: '10%', color: 'gray', marginVertical: 10 }}>Inbox</Text>
+              <Divider style={{ backgroundColor: 'white', height: 1.5 }} />
+              <TouchableOpacity onPress={() => props.navigation.navigate('Dummy')}>
+                <Text
+                  style={{
+                    marginLeft: '10%',
+                    color: 'white',
+                    marginVertical: 10,
+                  }}
+                >
+                  Home Page
+                </Text>
+              </TouchableOpacity>
               <Text
                 style={{
-                  marginLeft: "10%",
-                  color: "white",
+                  marginLeft: '10%',
+                  color: 'white',
                   marginVertical: 10,
                 }}
               >
                 Approvals
               </Text>
             </View>
-            <View style={{ marginTop: "10%" }}>
-              <Text
-                style={{ marginLeft: "10%", color: "gray", marginVertical: 10 }}
-              >
+            <View style={{ marginTop: '10%' }}>
+              <Text style={{ marginLeft: '10%', color: 'gray', marginVertical: 10 }}>
                 Activity Management
               </Text>
-              <Divider style={{ backgroundColor: "white", height: 1.5 }} />
+              <Divider style={{ backgroundColor: 'white', height: 1.5 }} />
               <Text
                 style={{
-                  marginLeft: "10%",
-                  color: "white",
+                  marginLeft: '10%',
+                  color: 'white',
                   marginVertical: 10,
                 }}
               >
@@ -76,34 +70,32 @@ const DrawerContent: FC<DrawerContentComponentProps> = (props) => {
               </Text>
               <Text
                 style={{
-                  marginLeft: "10%",
-                  color: "white",
+                  marginLeft: '10%',
+                  color: 'white',
                   marginVertical: 10,
                 }}
               >
                 Event
               </Text>
             </View>
-            <View style={{ marginTop: "10%" }}>
-              <Text
-                style={{ marginLeft: "10%", color: "gray", marginVertical: 10 }}
-              >
-                ATS
-              </Text>
-              <Divider style={{ backgroundColor: "white", height: 1.5 }} />
-              <Text
-                style={{
-                  marginLeft: "10%",
-                  color: "white",
-                  marginVertical: 10,
-                }}
-              >
-                Requisition
-              </Text>
+            <View style={{ marginTop: '10%' }}>
+              <Text style={{ marginLeft: '10%', color: 'gray', marginVertical: 10 }}>ATS</Text>
+              <Divider style={{ backgroundColor: 'white', height: 1.5 }} />
+              <TouchableOpacity onPress={() => props.navigation.navigate('Requisitions')}>
+                <Text
+                  style={{
+                    marginLeft: '10%',
+                    color: 'white',
+                    marginVertical: 10,
+                  }}
+                >
+                  Requisition
+                </Text>
+              </TouchableOpacity>
               <Text
                 style={{
-                  marginLeft: "10%",
-                  color: "white",
+                  marginLeft: '10%',
+                  color: 'white',
                   marginVertical: 10,
                 }}
               >
@@ -111,25 +103,23 @@ const DrawerContent: FC<DrawerContentComponentProps> = (props) => {
               </Text>
               <Text
                 style={{
-                  marginLeft: "10%",
-                  color: "white",
+                  marginLeft: '10%',
+                  color: 'white',
                   marginVertical: 10,
                 }}
               >
                 Candidate PipeLine
               </Text>
             </View>
-            <View style={{ marginTop: "10%" }}>
-              <Text
-                style={{ marginLeft: "10%", color: "gray", marginVertical: 10 }}
-              >
+            <View style={{ marginTop: '10%' }}>
+              <Text style={{ marginLeft: '10%', color: 'gray', marginVertical: 10 }}>
                 Organization Management
               </Text>
-              <Divider style={{ backgroundColor: "white", height: 1.5 }} />
+              <Divider style={{ backgroundColor: 'white', height: 1.5 }} />
               <Text
                 style={{
-                  marginLeft: "10%",
-                  color: "white",
+                  marginLeft: '10%',
+                  color: 'white',
                   marginVertical: 10,
                 }}
               >
@@ -137,25 +127,23 @@ const DrawerContent: FC<DrawerContentComponentProps> = (props) => {
               </Text>
               <Text
                 style={{
-                  marginLeft: "10%",
-                  color: "white",
+                  marginLeft: '10%',
+                  color: 'white',
                   marginVertical: 10,
                 }}
               >
                 Contact
               </Text>
             </View>
-            <View style={{ marginTop: "10%" }}>
-              <Text
-                style={{ marginLeft: "10%", color: "gray", marginVertical: 10 }}
-              >
+            <View style={{ marginTop: '10%' }}>
+              <Text style={{ marginLeft: '10%', color: 'gray', marginVertical: 10 }}>
                 Employ Self Service
               </Text>
-              <Divider style={{ backgroundColor: "white", height: 1.5 }} />
+              <Divider style={{ backgroundColor: 'white', height: 1.5 }} />
               <Text
                 style={{
-                  marginLeft: "10%",
-                  color: "white",
+                  marginLeft: '10%',
+                  color: 'white',
                   marginVertical: 10,
                 }}
               >
@@ -163,8 +151,8 @@ const DrawerContent: FC<DrawerContentComponentProps> = (props) => {
               </Text>
               <Text
                 style={{
-                  marginLeft: "10%",
-                  color: "white",
+                  marginLeft: '10%',
+                  color: 'white',
                   marginVertical: 10,
                 }}
               >
@@ -172,8 +160,8 @@ const DrawerContent: FC<DrawerContentComponentProps> = (props) => {
               </Text>
               <Text
                 style={{
-                  marginLeft: "10%",
-                  color: "white",
+                  marginLeft: '10%',
+                  color: 'white',
                   marginVertical: 10,
                 }}
               >
@@ -181,8 +169,8 @@ const DrawerContent: FC<DrawerContentComponentProps> = (props) => {
               </Text>
               <Text
                 style={{
-                  marginLeft: "10%",
-                  color: "white",
+                  marginLeft: '10%',
+                  color: 'white',
                   marginVertical: 10,
                 }}
               >
@@ -190,25 +178,21 @@ const DrawerContent: FC<DrawerContentComponentProps> = (props) => {
               </Text>
               <Text
                 style={{
-                  marginLeft: "10%",
-                  color: "white",
+                  marginLeft: '10%',
+                  color: 'white',
                   marginVertical: 10,
                 }}
               >
                 Separation
               </Text>
             </View>
-            <View style={{ marginTop: "10%" }}>
-              <Text
-                style={{ marginLeft: "10%", color: "gray", marginVertical: 10 }}
-              >
-                Other
-              </Text>
-              <Divider style={{ backgroundColor: "white", height: 1.5 }} />
+            <View style={{ marginTop: '10%' }}>
+              <Text style={{ marginLeft: '10%', color: 'gray', marginVertical: 10 }}>Other</Text>
+              <Divider style={{ backgroundColor: 'white', height: 1.5 }} />
               <Text
                 style={{
-                  marginLeft: "10%",
-                  color: "white",
+                  marginLeft: '10%',
+                  color: 'white',
                   marginVertical: 10,
                 }}
               >
@@ -216,8 +200,8 @@ const DrawerContent: FC<DrawerContentComponentProps> = (props) => {
               </Text>
               <Text
                 style={{
-                  marginLeft: "10%",
-                  color: "white",
+                  marginLeft: '10%',
+                  color: 'white',
                   marginVertical: 10,
                 }}
               >
@@ -226,21 +210,21 @@ const DrawerContent: FC<DrawerContentComponentProps> = (props) => {
             </View>
           </View>
         </View>
-        <Divider style={{ backgroundColor: "white", height: 3 }} />
+        <Divider style={{ backgroundColor: 'white', height: 3 }} />
         <View
           style={{
-            flexDirection: "row",
-            alignItems: "center",
+            flexDirection: 'row',
+            alignItems: 'center',
             marginTop: 50,
             marginBottom: 10,
           }}
         >
           <Text
             style={{
-              color: "white",
+              color: 'white',
               fontSize: 20,
-              fontWeight: "bold",
-              marginLeft: "20%",
+              fontWeight: 'bold',
+              marginLeft: '20%',
             }}
           >
             Log out

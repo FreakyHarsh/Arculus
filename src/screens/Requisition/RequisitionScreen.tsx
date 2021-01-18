@@ -12,8 +12,8 @@ import RequisitionDetail from './RequisitionDetail';
 import RequisitionHome from './RequisitionHome';
 import themedHeader from '../../utils/themedHeader';
 import RequisitionCreate from './RequisitionCreate';
-import InternalSubmitalCard from '../../components/InternalSubmitalCard';
 import InternalSubmitalsList from './InternalSubmitalsList';
+import AddInternalSubmital from './AddInternalSubmital';
 
 function RequisitionsScreen({
   navigation,
@@ -23,6 +23,8 @@ function RequisitionsScreen({
   route: RouteProp<DrawerParamList, 'Requisitions'>;
 }) {
   const drawerOpen = navigation.openDrawer;
+  const Stack = createStackNavigator<RequisitionParamList>();
+
   return (
     <Stack.Navigator initialRouteName='Home'>
       <Stack.Screen
@@ -54,14 +56,27 @@ function RequisitionsScreen({
         options={themedHeader('Submital Detail')}
       />
       <Stack.Screen
+        name='AddInternalSubmital'
+        component={AddInternalSubmital}
+        options={themedHeader('Add Internal Submital')}
+      />
+      <Stack.Screen
         name='Detail'
         component={RequisitionDetail}
-        options={themedHeader('Requisition Detail')}
+        options={{
+          ...themedHeader('Requisition Detail'),
+          headerRight: () => (
+            <IconButton
+              icon='plus-circle-outline'
+              size={30}
+              color='#FFFFFF'
+              onPress={() => navigation.navigate('AddInternalSubmital' as any)}
+            />
+          ),
+        }}
       />
     </Stack.Navigator>
   );
 }
-
-const Stack = createStackNavigator<RequisitionParamList>();
 
 export default RequisitionsScreen;

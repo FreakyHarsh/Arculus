@@ -2,15 +2,25 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import React, { FC, useContext, useReducer } from 'react';
 
 interface State {
-  requisitionNavigation: any;
+  reqId: string | null;
+  candidateName: string | null;
+  positionTitle: string;
+  desiredSalary: string;
+  process: string;
+  pushCard: any;
 }
 
 export const Actions = {
-  setRequisitionNavigation: 'setRequisitionNavigation',
+  setReqId: 'setReqId',
+  setCandidateName: 'setCandidateName',
+  setPositionTitle: 'setPositionTitle',
+  setDesiredSalary: 'setDesiredSalary',
+  setProcess: 'setProcess',
+  setPushCard: 'setPushCard',
 };
 
 const initialState: State = {
-  requisitionNavigation: '',
+  reqId: null,
 } as State;
 
 const Context = React.createContext({
@@ -20,10 +30,35 @@ const Context = React.createContext({
 
 const reducer = (state: State, action: any) => {
   switch (action.type) {
-    case Actions.setRequisitionNavigation:
+    case Actions.setReqId:
       return {
         ...state,
-        requisitionNavigation: action.payload,
+        reqId: action.payload,
+      };
+    case Actions.setCandidateName:
+      return {
+        ...state,
+        candidateName: action.payload,
+      };
+    case Actions.setDesiredSalary:
+      return {
+        ...state,
+        desiredSalary: action.payload,
+      };
+    case Actions.setPositionTitle:
+      return {
+        ...state,
+        positionTitle: action.payload,
+      };
+    case Actions.setProcess:
+      return {
+        ...state,
+        process: action.payload,
+      };
+    case Actions.setPushCard:
+      return {
+        ...state,
+        pushCard: action.payload,
       };
     default:
       return state;

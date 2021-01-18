@@ -7,20 +7,21 @@ function InternalSubmitalsList() {
   const DATA = ['1'];
   const [data, setData] = useState<any>();
   const renderItem = ({ item }: any) => {
+    console.log(item);
     return <InternalSubmitalCard />;
   };
 
   const {
     state: { reqId, pushCard, list },
   } = useStore();
-  useEffect(() => {
-    DATA.push('1');
-    setData(DATA);
-  }, [list]);
+  // useEffect(() => {
+  //   DATA.push('1');
+  //   setData(DATA);
+  // }, [list]);
   return (
     <View>
       <StatusBar barStyle='light-content' />
-      <FlatList data={data} renderItem={renderItem} keyExtractor={(item) => item + Math.random()} />
+      <FlatList data={list} renderItem={renderItem} keyExtractor={(item) => item + Math.random()} />
     </View>
   );
 }

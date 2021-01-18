@@ -21,14 +21,13 @@ const styles = StyleSheet.create({
   },
 });
 
-function InternalSubmitalCard({ text }: any) {
+function InternalSubmitalCard() {
   const {
     state: { candidateName, desiredSalary, positionTitle, pushCard },
   } = useStore();
   useEffect(() => {}, [pushCard]);
   return (
     <View style={styles.cardContainer}>
-      {/* <Text>{text}</Text> */}
       <Card style={styles.card}>
         <Card.Content>
           <View style={styles.flexRow}>

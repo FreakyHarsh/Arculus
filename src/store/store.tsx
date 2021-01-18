@@ -8,6 +8,7 @@ interface State {
   desiredSalary: string;
   process: string;
   pushCard: any;
+  list: any[];
 }
 
 export const Actions = {
@@ -17,6 +18,7 @@ export const Actions = {
   setDesiredSalary: 'setDesiredSalary',
   setProcess: 'setProcess',
   setPushCard: 'setPushCard',
+  setList: 'setList',
 };
 
 const initialState: State = {
@@ -59,6 +61,13 @@ const reducer = (state: State, action: any) => {
       return {
         ...state,
         pushCard: action.payload,
+      };
+    case Actions.setList:
+      console.log(state.list);
+      console.log(action.payload);
+      return {
+        ...state,
+        list: [...state.list, action.payload],
       };
     default:
       return state;

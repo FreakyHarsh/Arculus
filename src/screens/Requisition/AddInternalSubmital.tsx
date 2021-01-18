@@ -6,9 +6,10 @@ import { Dropdown } from 'react-native-material-dropdown-v2-fixed';
 import { useStore, Actions } from '../../store/store';
 function AddInternalSubmital({ navigation }: any) {
   const {
-    state: { positionTitle, process, candidateName, reqId, desiredSalary },
+    state: { positionTitle, process, candidateName, reqId, desiredSalary, list },
     dispatch,
   } = useStore();
+  const obj: any = {};
   let positionTitleOptions = [
     {
       value: 'Graphic Designer',
@@ -34,6 +35,7 @@ function AddInternalSubmital({ navigation }: any) {
         style={{ width: '85%', backgroundColor: 'transparent' }}
         onChangeText={(text) => {
           dispatch({ type: Actions.setReqId, payload: text });
+          obj.reqId = text;
         }}
       ></TextInput>
       <TextInput
@@ -47,6 +49,7 @@ function AddInternalSubmital({ navigation }: any) {
         style={{ width: '85%', marginVertical: '5%', backgroundColor: 'transparent' }}
         onChangeText={(text) => {
           dispatch({ type: Actions.setCandidateName, payload: text });
+          obj.candidateName = text;
         }}
       ></TextInput>
       <Dropdown
@@ -58,6 +61,7 @@ function AddInternalSubmital({ navigation }: any) {
         baseColor='transparent'
         onChangeText={(text: any) => {
           dispatch({ type: Actions.setPositionTitle, payload: text });
+          obj.positionTitle = text;
         }}
       />
       <TextInput
@@ -71,6 +75,7 @@ function AddInternalSubmital({ navigation }: any) {
         style={{ width: '85%', marginVertical: '5%', backgroundColor: 'transparent' }}
         onChangeText={(text) => {
           dispatch({ type: Actions.setDesiredSalary, payload: text });
+          obj.desiredSalary = text;
         }}
       ></TextInput>
       <TextInput
@@ -91,7 +96,8 @@ function AddInternalSubmital({ navigation }: any) {
         mode='contained'
         color='#1B435C'
         onPress={() => {
-          dispatch({ type: Actions.setPushCard, payload: 1 });
+          dispatch({ type: Actions.setList, payload: { ...obj } });
+          console.log(obj);
           navigation.navigate('InternalSubmitalsList');
         }}
       >

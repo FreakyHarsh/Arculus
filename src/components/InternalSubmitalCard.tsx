@@ -21,13 +21,14 @@ const styles = StyleSheet.create({
   },
 });
 
-function InternalSubmitalCard() {
+function InternalSubmitalCard({ text }: any) {
   const {
     state: { candidateName, desiredSalary, positionTitle, pushCard },
   } = useStore();
   useEffect(() => {}, [pushCard]);
   return (
     <View style={styles.cardContainer}>
+      {/* <Text>{text}</Text> */}
       <Card style={styles.card}>
         <Card.Content>
           <View style={styles.flexRow}>
@@ -40,7 +41,7 @@ function InternalSubmitalCard() {
           </View>
           <View style={styles.flexRow}>
             <Text style={{ width: '50%' }}>Desired Salary -</Text>
-            <Caption style={{ width: '50%' }}>{desiredSalary || '3Lacks'} </Caption>
+            <Caption style={{ width: '50%' }}>{desiredSalary || '3 Lacs'} </Caption>
           </View>
         </Card.Content>
       </Card>

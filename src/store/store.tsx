@@ -22,7 +22,7 @@ export const Actions = {
 };
 
 const initialState: State = {
-  reqId: null,
+  list: [] as any,
 } as State;
 
 const Context = React.createContext({

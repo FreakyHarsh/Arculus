@@ -6,6 +6,7 @@ import RequisitionsScreen from './src/screens/Requisition/RequisitionScreen';
 import { DrawerParamList } from './src/types/DrawerParamList';
 import DrawerContent from './DrawerContent';
 import HomePage from './src/screens/HomePage';
+import { AppStateGG } from './src/store/store';
 
 const MyTheme = {
   ...DefaultTheme,
@@ -25,11 +26,13 @@ function Dummy() {
 const Drawer = createDrawerNavigator<DrawerParamList>();
 export default function App() {
   return (
-    <NavigationContainer theme={MyTheme}>
-      <Drawer.Navigator initialRouteName='Dummy' drawerContent={DrawerContent}>
-        <Drawer.Screen name='Requisitions' component={RequisitionsScreen} />
-        <Drawer.Screen name='Dummy' component={HomePage} />
-      </Drawer.Navigator>
-    </NavigationContainer>
+    <AppStateGG>
+      <NavigationContainer theme={MyTheme}>
+        <Drawer.Navigator initialRouteName='Dummy' drawerContent={DrawerContent}>
+          <Drawer.Screen name='Requisitions' component={RequisitionsScreen} />
+          <Drawer.Screen name='Dummy' component={HomePage} />
+        </Drawer.Navigator>
+      </NavigationContainer>
+    </AppStateGG>
   );
 }

@@ -6,7 +6,7 @@ import { Dropdown } from 'react-native-material-dropdown-v2-fixed';
 import { useStore, Actions } from '../../store/store';
 function AddInternalSubmital({ navigation }: any) {
   const {
-    state: { positionTitle, process, candidateName, reqId, desiredSalary, list },
+    state: { list },
     dispatch,
   } = useStore();
   const obj: any = {};
@@ -34,7 +34,7 @@ function AddInternalSubmital({ navigation }: any) {
         }}
         style={{ width: '85%', backgroundColor: 'transparent' }}
         onChangeText={(text) => {
-          dispatch({ type: Actions.setReqId, payload: text });
+          // dispatch({ type: Actions.setReqId, payload: text });
           obj.reqId = text;
         }}
       ></TextInput>
@@ -48,7 +48,7 @@ function AddInternalSubmital({ navigation }: any) {
         }}
         style={{ width: '85%', marginVertical: '5%', backgroundColor: 'transparent' }}
         onChangeText={(text) => {
-          dispatch({ type: Actions.setCandidateName, payload: text });
+          // dispatch({ type: Actions.setCandidateName, payload: text });
           obj.candidateName = text;
         }}
       ></TextInput>
@@ -60,7 +60,7 @@ function AddInternalSubmital({ navigation }: any) {
         containerStyle={{ width: '85%' }}
         baseColor='transparent'
         onChangeText={(text: any) => {
-          dispatch({ type: Actions.setPositionTitle, payload: text });
+          // dispatch({ type: Actions.setPositionTitle, payload: text });
           obj.positionTitle = text;
         }}
       />
@@ -74,7 +74,7 @@ function AddInternalSubmital({ navigation }: any) {
         }}
         style={{ width: '85%', marginVertical: '5%', backgroundColor: 'transparent' }}
         onChangeText={(text) => {
-          dispatch({ type: Actions.setDesiredSalary, payload: text });
+          // dispatch({ type: Actions.setDesiredSalary, payload: text });
           obj.desiredSalary = text;
         }}
       ></TextInput>
@@ -88,7 +88,7 @@ function AddInternalSubmital({ navigation }: any) {
           },
         }}
         onChangeText={(text) => {
-          dispatch({ type: Actions.setProcess, payload: text });
+          // dispatch({ type: Actsions.setProcess, payload: text });
         }}
         style={{ width: '85%', marginVertical: '5%', backgroundColor: 'transparent' }}
       ></TextInput>

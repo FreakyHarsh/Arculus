@@ -14,6 +14,7 @@ import themedHeader from '../../utils/themedHeader';
 import RequisitionCreate from './RequisitionCreate';
 import InternalSubmitalsList from './InternalSubmitalsList';
 import AddInternalSubmital from './AddInternalSubmital';
+import UpdateInternalSubmital from './UpdateInternalSubmital';
 
 function RequisitionsScreen({
   navigation,
@@ -54,6 +55,11 @@ function RequisitionsScreen({
         name='InternalSubmitalsList'
         component={InternalSubmitalsList}
         options={themedHeader('Submital Detail')}
+      />
+      <Stack.Screen
+        name='UpdateInternalSubmital'
+        component={UpdateInternalSubmital}
+        options={themedHeader('Update Detail')}
       />
       <Stack.Screen
         name='AddInternalSubmital'

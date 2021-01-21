@@ -73,7 +73,7 @@ function RequisitionDetail({ navigation }: RequisitionNavProp<'Detail'>) {
         style={{ padding: 4 }}
         onPress={() => navigation.navigate('InternalSubmitalsList')}
       >
-        Check Interntal Submital List{' '}
+        Candidates List
       </Button>
     </View>
   );

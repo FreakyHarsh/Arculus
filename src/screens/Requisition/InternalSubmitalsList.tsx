@@ -3,20 +3,47 @@ import InternalSubmitalCard from '../../components/InternalSubmitalCard';
 import { FlatList, View, StatusBar, Text } from 'react-native';
 import { useStore } from '../../store/store';
 
-function InternalSubmitalsList() {
-  const renderItem = ({ item }: any) => {
-    console.log(item);
-    return <InternalSubmitalCard />;
+function InternalSubmitalsList({ navigation }: any) {
+  const renderItem = ({ item, index }: any) => {
+    console.log(index);
+    const { candidateName, desiredSalary, positionTitle, reqId, status, process } = item;
+    return (
+      <InternalSubmitalCard
+        candidateName={candidateName}
+        desiredSalary={desiredSalary}
+        positionTitle={positionTitle}
+        reqId={reqId}
+        status={status}
+        process={process}
+        edit={() => {
+          navigation.navigate('UpdateInternalSubmital', {
+            update: true,
+            listIndexToUpdate: index,
+            candidateName,
+            desiredSalary,
+            positionTitle,
+            reqId,
+            status,
+            process,
+          });
+        }}
+      />
+    );
   };
 
   const {
-    state: { reqId, pushCard, list },
+    state: { list },
   } = useStore();
-
+  //@ts-ignore
+  const uniqueList = [...new Map(list.map((item) => [item['reqId'], item])).values()];
   return (
     <View>
       <StatusBar barStyle='light-content' />
-      <FlatList data={list} renderItem={renderItem} keyExtractor={(item) => item + Math.random()} />
+      <FlatList
+        data={uniqueList}
+        renderItem={renderItem}
+        keyExtractor={(item) => item + Math.random()}
+      />
     </View>
   );
 }

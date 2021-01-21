@@ -14,7 +14,6 @@ const DrawerContent: FC<DrawerContentComponentProps> = (props) => {
         <View
           style={{
             flexDirection: 'row',
-
             alignItems: 'center',
             marginTop: 50,
             marginBottom: 10,

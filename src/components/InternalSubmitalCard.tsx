@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { Card, Subheading, Caption } from 'react-native-paper';
+import { Card, Subheading, Caption, IconButton } from 'react-native-paper';
 import { useStore } from '../store/store';
 const styles = StyleSheet.create({
   card: {
     width: '90%',
     elevation: 5,
-    height: 100,
     marginTop: '5%',
   },
   cardContainer: {
@@ -16,23 +15,39 @@ const styles = StyleSheet.create({
   },
   flexRow: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'center',
   },
 });
 
-function InternalSubmitalCard() {
+function InternalSubmitalCard({
+  candidateName,
+  positionTitle,
+  desiredSalary,
+  edit,
+  process,
+  status,
+}: any) {
   const {
-    state: { candidateName, desiredSalary, positionTitle, pushCard },
+    state: { list },
   } = useStore();
-  useEffect(() => {}, [pushCard]);
+  // useEffect(() => {}, [pushCard]);
   return (
     <View style={styles.cardContainer}>
       <Card style={styles.card}>
         <Card.Content>
-          <View style={styles.flexRow}>
-            <Text style={{ width: '50%' }}>Candidate Name -</Text>
-            <Caption style={{ width: '50%' }}>{candidateName || 'Jon Doe'}</Caption>
+          <View>
+            <View style={[styles.flexRow, { width: '75%' }]}>
+              <Text>Candidate Name -</Text>
+              <Caption>{candidateName || 'Jon Doe'}</Caption>
+            </View>
+            <IconButton
+              icon='pencil'
+              color='#1B435C'
+              size={23}
+              style={{ position: 'absolute', right: 0, top: -10 }}
+              onPress={edit}
+            />
           </View>
           <View style={styles.flexRow}>
             <Text style={{ width: '50%' }}>Position Title -</Text>
@@ -41,6 +56,14 @@ function InternalSubmitalCard() {
           <View style={styles.flexRow}>
             <Text style={{ width: '50%' }}>Desired Salary -</Text>
             <Caption style={{ width: '50%' }}>{desiredSalary || '3 Lacs'} </Caption>
+          </View>
+          <View style={styles.flexRow}>
+            <Text style={{ width: '50%' }}>Process -</Text>
+            <Caption style={{ width: '50%' }}>{process || '3 Lacs'} </Caption>
+          </View>
+          <View style={styles.flexRow}>
+            <Text style={{ width: '50%' }}>Status -</Text>
+            <Caption style={{ width: '50%' }}>{status || '3 Lacs'} </Caption>
           </View>
         </Card.Content>
       </Card>

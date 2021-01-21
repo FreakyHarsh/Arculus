@@ -75,7 +75,22 @@ function AddInternalSubmital({ navigation, route }: any) {
           obj.desiredSalary = text;
         }}
       ></TextInput>
-      <TextInput
+      <Dropdown
+        label='Process'
+        data={[
+          { value: 'Candidate Evaluation' },
+          { value: 'Candidate Approval' },
+          { value: 'Employment Offer' },
+        ]}
+        underlineColor='black'
+        selectionColor='black'
+        containerStyle={{ width: '85%' }}
+        baseColor='transparent'
+        onChangeText={(text: any) => {
+          obj.process = text;
+        }}
+      />
+      {/* <TextInput
         label='Process'
         // value='Candidate Evaluation'
         underlineColor='black'
@@ -88,8 +103,24 @@ function AddInternalSubmital({ navigation, route }: any) {
           obj.process = text;
         }}
         style={{ width: '85%', marginVertical: '5%', backgroundColor: 'transparent' }}
-      ></TextInput>
-      <TextInput
+      ></TextInput> */}
+      <Dropdown
+        label='Status'
+        data={[
+          { value: 'Hold' },
+          { value: 'Pending' },
+          { value: 'Rejected' },
+          { value: 'Approved' },
+        ]}
+        underlineColor='black'
+        selectionColor='black'
+        containerStyle={{ width: '85%' }}
+        baseColor='transparent'
+        onChangeText={(text: any) => {
+          obj.status = text;
+        }}
+      />
+      {/* <TextInput
         label='Status'
         // value='Submitted for Review'
         underlineColor='black'
@@ -102,7 +133,7 @@ function AddInternalSubmital({ navigation, route }: any) {
           obj.status = text;
         }}
         style={{ width: '85%', marginVertical: '5%', backgroundColor: 'transparent' }}
-      ></TextInput>
+      ></TextInput> */}
       <Button
         mode='contained'
         color='#1B435C'
@@ -113,7 +144,7 @@ function AddInternalSubmital({ navigation, route }: any) {
         }}
       >
         {/* {update ? 'Update' : 'Submit'} */}
-        Submitt
+        Submit
       </Button>
     </View>
   );

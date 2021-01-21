@@ -109,7 +109,40 @@ function UpdateInternalSubmital({ navigation, route }: any) {
           setDesiredSalaryInput(text);
         }}
       ></TextInput>
-      <TextInput
+      <Dropdown
+        label='Status'
+        data={[
+          { value: 'Hold' },
+          { value: 'Pending' },
+          { value: 'Rejected' },
+          { value: 'Approved' },
+        ]}
+        value={statusInput}
+        underlineColor='black'
+        selectionColor='black'
+        containerStyle={{ width: '85%' }}
+        baseColor='transparent'
+        onChangeText={(text: any) => {
+          obj.status = text;
+        }}
+      />
+      <Dropdown
+        label='Process'
+        data={[
+          { value: 'Candidate Evaluation' },
+          { value: 'Candidate Approval' },
+          { value: 'Employment Offer' },
+        ]}
+        value={processInput}
+        underlineColor='black'
+        selectionColor='black'
+        containerStyle={{ width: '85%' }}
+        baseColor='transparent'
+        onChangeText={(text: any) => {
+          obj.process = text;
+        }}
+      />
+      {/* <TextInput
         label='Process'
         value={processInput}
         underlineColor='black'
@@ -138,7 +171,7 @@ function UpdateInternalSubmital({ navigation, route }: any) {
           setStatusInput(text);
         }}
         style={{ width: '85%', marginVertical: '5%', backgroundColor: 'transparent' }}
-      ></TextInput>
+      ></TextInput> */}
       <Button
         mode='contained'
         color='#1B435C'
